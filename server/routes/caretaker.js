@@ -1,5 +1,5 @@
 import express from "express";
-const router = express.Router();
+
 import auth from "../middleware/auth.js";
 
 import {
@@ -14,7 +14,7 @@ import {
   likeTour,
   updateTour,
 } from "../controllers/caretaker.js";
-
+const router = express.Router();
 router.get("/search", getToursBySearch);
 router.get("/tag/:tag", getToursByTag);
 router.post("/relatedTours", getRelatedTours);

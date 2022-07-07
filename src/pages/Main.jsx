@@ -64,9 +64,9 @@ if(user?.result?.caretaker){
         
         <button className="btns">Not allocated yet ...</button>
         <p>
-        Do you need help?<br></br> Email the system coordinator on coordinator@sppms.com<br></br>
+        Do you need help?<br></br> Email the system coordinator on admin@gmail.com<br></br>
 
-Are you a supervisor but logged in with <br></br> a student's level account? <br></br> Send a supervision request to coordinator@sppms.com. <br></br> In the request, attach your national ID and your staff ID.<br></br> Note that the system admin may schedule a <br></br>zoom meeting with you to <br></br> confirm your identity.
+Are you a CareTaker but logged in with <br></br> a Tenants level account? <br></br> Send a supervision request to admin@sppms.com. <br></br> In the request, attach your national ID and your staff ID.<br></br> Note that the system admin may schedule a <br></br>zoom meeting with you to <br></br> confirm your identity.
         </p>
     </div>
    {/* {user?.result?.isAdmin?'hello' :'not admin'} */}

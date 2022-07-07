@@ -17,15 +17,14 @@ export const createMilestone = createAsyncThunk(
     }
   }
 );
-export const getMiles = createAsyncThunk(
-  "milestone/getMilestone",
-  async (_, {rejectWithValue}) => {
+export const getMilesByUser = createAsyncThunk(
+  "tour/getMilesByUser",
+  async (userId, { rejectWithValue }) => {
     try {
-      const response = await api.getMiles()
-        return response.data;
-    } catch (error) {
-      console.log(error);
-      toast.error(error.response?.data);
+      const response = await api.getMilesByUser(userId);
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
     }
   }
 );
@@ -40,11 +39,12 @@ export const getMilestoneByUser = createAsyncThunk(
     }
   }
 );
-  const projectSlice = createSlice({
+  const milestoneSlice = createSlice({
     name: "milestone",
     initialState: {
      milestone:[],
       milestones:[],
+      miles:[],
       // userProjects:[],
       error: "",
       loading: false,
@@ -70,14 +70,14 @@ export const getMilestoneByUser = createAsyncThunk(
         state.loading = false;
         state.error = action.payload.message;
       },
-      [getMiles.pending]: (state, action) => {
+      [getMilesByUser.pending]: (state, action) => {
         state.loading = true;
       },
-      [getMiles.fulfilled]: (state, action) => {
+      [getMilesByUser.fulfilled]: (state, action) => {
         state.loading = false;
-        state.milestones= action.payload;
+        state.miles= action.payload;
       },
-      [getMiles.rejected]: (state, action) => {
+      [getMilesByUser.rejected]: (state, action) => {
         state.loading = false;
         state.error = action.payload.message;
       },
@@ -96,5 +96,5 @@ export const getMilestoneByUser = createAsyncThunk(
     
     },
   });
-  export default projectSlice.reducer;
+  export default milestoneSlice.reducer;
   
