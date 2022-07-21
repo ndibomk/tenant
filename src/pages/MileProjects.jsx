@@ -34,6 +34,7 @@ const MileProjects = () => {
       return(
         <div>
           {items.milestone}
+          
         </div>
       )
     })}

@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  max-width: 380px;
+  /* max-width: 680px; */
   width: 100%;
-  margin: 2rem ;
+  display: flex;
+  flex-direction:column;
+  /* margin: 2rem ; */
+  align-items: center;
+  
+  justify-content: center;
   h2 {
     margin-bottom: 1rem;
   }
   button,
   input {
     height: 35px;
-    width: 100%;
+    width: 15rem;
     padding: 7px;
     outline: none;
     border-radius: 5px;
@@ -35,6 +40,7 @@ export const StyledForm = styled.form`
     max-width: 390px;
     width: 90%;
     margin-right: 1rem;
+    margin-left:1rem;
   }
 `;
 export const StyledForms = styled.form`

@@ -11,10 +11,10 @@ import {
 } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import { googleSignIn, login } from "../redux/features/authSlice";
 import { GoogleLogin } from "react-google-login";
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 const initialState = {
   email: "",
   password: "",
@@ -58,32 +58,30 @@ const Login = () => {
   const googleFailure = (error) => {
     toast.error(error);
   };
+
+  function Notify() {
+    toast("You clicked the button");
+  }
+
   return (
     <>
+    <ToastContainer/>
     <div style={{
-        margin: "auto",
-        padding: "15px",
-        maxWidth: "750px",
-        alignContent: "center",
-        marginTop: "120px",
-      }}>
-         <h2>SCIT Project Progress Management System
-</h2>
-<h6>Management of final year students' projects made easier!</h6>
+        // margin: "auto",
+        // padding: "15px",
+        // maxWidth: "750px",
+        // alignContent: "center",
+        // marginTop: "120px",
+      }} className='home-main'>
+        
 
    
     </div>
    <div
-      style={{
-        margin: "auto",
-        padding: "15px",
-        maxWidth: "450px",
-        alignContent: "center",
-        marginTop: "50px",
-      }}
+      className="form home-main "
     >
       
-      <MDBCard alignment="center">
+      <div className="form-items" alignment="center">
      
         <MDBIcon fas icon="user-circle" className="fa-2x" />
         <h5>Sign In</h5>
@@ -121,6 +119,7 @@ const Login = () => {
                     role="status"
                     tag="span"
                     className="me-2"
+                    onClick={Notify}
                   />
                 )}
                 Login
@@ -150,7 +149,7 @@ const Login = () => {
             <p>Don't have an account ? Sign Up</p>
           </Link>
         </MDBCardFooter>
-      </MDBCard>
+      </div >
     </div></>
   );
 };

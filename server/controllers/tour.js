@@ -105,9 +105,9 @@ export const getToursBySearch = async (req, res) => {
 };
 
 export const getToursByTag = async (req, res) => {
-  const { tag } = req.params;
+  const { apartment } = req.params;
   try {
-    const tours = await TourModal.find({ tags: { $in: tag } });
+    const tours = await TourModal.find({ apartment: { $in: apartment } });
     res.json(tours);
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });

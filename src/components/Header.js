@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from '../Assets/logo.jpeg'
 import {
   MDBNavbar,
   MDBContainer,
@@ -14,6 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLogout } from "../redux/features/authSlice";
 import { useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -43,7 +45,7 @@ const Header = () => {
           href="/"
           style={{ color: "#606080", fontWeight: "600", fontSize: "22px" }}
         >
-          SPPMS
+         <img className="logo" src={logo} alt="navi"/>
         </MDBNavbarBrand>
         <MDBNavbarToggler
           type="button"
@@ -56,11 +58,7 @@ const Header = () => {
         </MDBNavbarToggler>
         <MDBCollapse show={show} navbar>
           <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0">
-            {user?.result?._id && (
-              <h5 style={{ marginRight: "30px", marginTop: "27px" }}>
-                Logged in as: {user?.result?.name}
-              </h5>
-            )}
+           
             <MDBNavbarItem>
               <MDBNavbarLink href="/">
                 <p className="header-text">Home</p>
@@ -97,6 +95,15 @@ const Header = () => {
           </form> */}
         </MDBCollapse>
       </MDBContainer>
+      {/* {user?.result?._id && (
+              <h5 style={{ marginRight: "30px", marginTop: "27px" }}>
+               profile<Link to='/profile'>
+               <MDBIcon fas icon="user-circle" className="fa-2x" />
+
+                {/* Profile {user?.result?.name} */}
+                {/* </Link> 
+              </h5> */}
+            // 
     </MDBNavbar>
   );
 };

@@ -17,15 +17,18 @@ export const signIn = (formData) => API.post("/users/signin", formData);
 export const signUp = (formData) => API.post("/users/signup", formData);
 export const googleSignIn = (result) => API.post("/users/googleSignIn", result);
 export const getMiles = () => API.get("/milestone");
+export const createComplain = (formData) => API.post("/complain", formData);
+export const createVacation = (formData) => API.post("/vacation", formData);
+
 export const createTour = (formData) => API.post("/project", formData);
-export const getprojects = () => API.get("/project");
-export const getTour = (id) => API.get(`/tour/${id}`);
-export const deleteTour = (id) => API.delete(`/tour/${id}`);
+export const getTours = () => API.get("/project");
+export const getTour = (id) => API.get(`/project/${id}`);
+export const deleteTour = (id) => API.delete(`/project/${id}`);
 export const updateTour = (updatedTourData, id) =>
   API.patch(`/tour/${id}`, updatedTourData);
   export const getProjectsByUser = (userId) => API.get(`/project/userProjects/${userId}`);
   export const getMilesByUser = (userId) => API.get(`/milestone/miles/${userId}`);
-  export const createMile = (mile) => API.post("/milestone", mile);
+  export const createMile = (updateddata) => API.post("/milestone", updateddata);
 
 export const getToursBySearch = (searchQuery) =>
   API.get(`/tour/search?searchQuery=${searchQuery}`);

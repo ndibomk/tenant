@@ -48,15 +48,10 @@ const Register = () => {
   };
   return (
     <div
-      style={{
-        margin: "auto",
-        padding: "15px",
-        maxWidth: "450px",
-        alignContent: "center",
-        marginTop: "120px",
-      }}
+      
+      className='forms home-main'
     >
-      <MDBCard alignment="center">
+      <div className="form-items">
      
         <MDBIcon fas icon="user-circle" className="fa-2x" />
         <h5>Sign Up</h5>
@@ -142,7 +137,7 @@ const Register = () => {
             <p>Already have an account ? Sign In</p>
           </Link>
         </MDBCardFooter>
-      </MDBCard>
+      </div>
     </div>
   );
 };

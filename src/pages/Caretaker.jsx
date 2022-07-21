@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,8 +24,15 @@ const userId =user?.result?._id
 
 const [date,setDate]=useState('')
 const [mile,setMilestone]=useState({
-    milestone:'',
-    milestoneDesc:'',
+    name:'',
+    apartment:'',
+    item:'',
+    quantity:'',
+    price:'',
+    shopName:'',
+    servedBy:'',
+    phoneNo:'',
+
     createdAt:Date
 
 })
@@ -43,36 +49,25 @@ const handleSubmit= (e)=>{
 }
 
   return (
-   <div className="main-milestone">
-<div className="milestone">
-  <div className="prject-items">
-    {projects && projects.map((item)=>{
-      return(
-        <>
-        <div className="items">
-          <p>{item.projectTitle}</p>
-          <button className="btn">
-{item.status}
-          </button>
-          <p>{item.projectDesc}</p>
-        </div>
-        <div className="lines"></div>
-        <div className="items2">
-<div className="paragraph">
-  <h6>{item.name}</h6>
-  <h6>{item.regNo} .. {item.course}</h6>
+   
+      <StyledForm style={{marginTop:'8rem'}} onSubmit={handleSubmit}>
+    <h3> Caretaker Roles </h3>
+    <div className="main-rent-create">
+    <div className="rent-split-start">
+      <input className='form-input' type='text'  placeholder='Your Name' onChange={(e)=> setMilestone({...mile , name:e.target.value})} required/>
+      <input className='form-input' type='text'  placeholder='Apartment eg A or B or C' onChange={(e)=> setMilestone({...mile , apartment:e.target.value})} required/>
+      <input className='form-input' type='text'  placeholder='Name of the Item' onChange={(e)=> setMilestone({...mile , item:e.target.value})} required/>
+       <input className='form-input' type='number'  placeholder='Price' onChange={(e)=> setMilestone({...mile , price:e.target.value})} required/>
+       </div>
+       <div className="rent-split">
+       <input className='form-input' type='number'  placeholder='Quantity' onChange={(e)=> setMilestone({...mile , quantity:e.target.value})} required/>
+      <input className='form-input' type='text'  placeholder='Shop Name' onChange={(e)=> setMilestone({...mile , shopName:e.target.value})} required/>
+      <input className='form-input' type='number'  placeholder='Phone Number of the Seller' onChange={(e)=> setMilestone({...mile , phoneNo:e.target.value})} required/>
+      <input className='form-input' type='text'  placeholder='Name of The Seller' onChange={(e)=> setMilestone({...mile , servedBy:e.target.value})} required/> 
+       <input className='form-input' type='Date'  placeholder='Project Title' onChange={(e)=> setMilestone({...mile , createdAt:e.target.value})} required/>
+      
+      </div>
 </div>
-        </div>
-     </> )
-    })}
-  </div>
-      <StyledForm  onSubmit={handleSubmit}>
-    <h3>  Add New Milestone </h3>
-      <input className='form-input' type='text'  placeholder='Introduction' onChange={(e)=> setMilestone({...mile , milestone:e.target.value})} required/>
-      <input className='form-input' type='text'  placeholder='Milestone Desc' onChange={(e)=> setMilestone({...mile , milestoneDesc:e.target.value})} required/>
-      deadline Date
-      <input className='form-input' type='Date'  placeholder='Project Title' onChange={(e)=> setMilestone({...mile , createdAt:e.target.value})} required/>
-
       <button className='btn'>
       {/* {auth.registerStatus==='pedding' ? 'submitting':'register' } */}
       ADD
@@ -84,24 +79,8 @@ const handleSubmit= (e)=>{
         </Link>
         </ div>
       </StyledForm>
-      </div>
       
- </div>
-//     <div className="main-milestone">
-//         <div className='milestone'>
-// <div className="prject-items">
-//     {projects && projects.map((item)=>{
-//         return(
-//             <>
-//             <div>
-                
-//             </div>
-           
-//            </div>
-//            </div>
-
-//         </>
-    
+ 
     
   )
 }

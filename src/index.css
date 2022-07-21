@@ -18,6 +18,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.spinner{
+  display: flex;
+  height: 10rem;
+  align-items: center;
+  justify-content: center;
+margin-top: 4rem;
+}
 
 .header-text {
   color: #606080;
@@ -82,7 +89,7 @@ h4:after {
 
 .main{
   width: 100%;
-  height: 80Vh;
+  height: 100Vh;
   display: flex;
   flex-direction: row;
   /* margin-top: 1rem ; */
@@ -96,7 +103,8 @@ h4:after {
   align-items: center;
   /* justify-content: center; */
   flex-direction: column;
-  gap: 2rem;
+  /* gap: 2rem; */
+  margin-left: 1rem;
 }
 .btn{
   height: 2rem;
@@ -111,8 +119,8 @@ h4:after {
   border-radius: 0.5rem;
 }
 .card{
-  height: 15rem;
-  width: 29.9rem;
+  height: 25rem;
+  width: 33.9rem;
 border-radius: 2rem !important;
 align-items: center;
 justify-content: center;
@@ -137,9 +145,13 @@ text-transform: capitalize;
   flex-wrap: wrap;
   
 }
+.forms-ccs{
+  display: flex;
+  flex-direction: column;
+}
 .line{
   width: 100%;
-  height: 0.1rem;
+  height: 0.04rem;
   background-color: #000;
 }
 .lines{
@@ -216,4 +228,204 @@ justify-content: space-between;
   
   align-items: center;
   justify-content: center;
+}
+
+.tenant-dashboard{
+  width: 100%;
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.tenant-card{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.balance{
+  margin-left: 1rem;
+}
+.details-card{
+  width: 100%;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem 1rem 0;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+}
+.tenant-one{
+  display: flex;
+  flex-direction: column;
+}
+.align{
+  display: flex;
+  justify-content: space-around;
+  gap: 4rem;
+}
+.tenant-page{
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap:7rem;
+  padding-left: 1rem;
+ 
+}
+.tenant-header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:2rem;
+}
+.header{
+  margin-top: 5rem;
+  align-items: center;
+  text-align: center;
+}
+.rent-page{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.rent-card{
+ align-items: center;
+ padding: 2rem;
+  background-color: #fdfcfd;
+  display: flex;
+  flex-direction: column;
+}
+.form{
+  width: 100%;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-items{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fdfcfd;
+  border-radius: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.form-main{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.forms{
+  width: 100%;
+ margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.input{
+  width: 14rem;
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 600px) {
+  .tenant-page{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .tenant-header{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    
+  }
+}
+
+.profile{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  float:right;
+  margin-right: 1rem;
+}
+.prof-details{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  width: 19rem;
+  height: 22rem;
+  background-color: #faf8f8;
+}
+.apartment{
+  height: 2rem;
+  background-color: #806a78;
+  color: #fdfcfd;
+}
+.home-main{
+  background-image: url('./Assets/peter2.jpg');
+  width: 100%;
+  object-fit: cover;
+  margin-top: 5rem;
+}
+.main-rent-create{
+  /* width: 100%; */
+ 
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap :2rem;
+ background-color: #cab0c0;
+ padding: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+.rent-split-start{
+  display: flex;
+  flex-direction: column;
+}
+.rent-split{
+  display: flex;
+  flex-direction: column;
+}
+.logo{
+  height: 4rem;
+  width: 3rem;
+  object-fit: cover;
+  word-wrap: normal;
+  border-image-outset: 0;
+  -o-border-image: none;
+  border-radius: 90%;
+}
+.footer{
+  width: 100%;
+  height: 2rem;
+  background-color: blueviolet;
+  text-align: center;
+  justify-content:center;
+  align-items: center;
+  color: #fdfcfd;
+  margin-top: 1rem;
+}
+.rent-single-page{
+  display: flex;
+  flex-direction: column;
 }

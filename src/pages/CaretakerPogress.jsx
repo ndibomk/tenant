@@ -36,7 +36,19 @@ const CaretakerPogress = () => {
      {users && users.map((item)=>{
         return(
             <div>
-                {item.milestone}
+            apartment :   {item.apartment}
+                <div></div>
+                name:  {item.name}
+                <div></div>
+                price : {item.price}
+                <div></div>
+                quantity: {item.quantity}
+                <div></div>
+                hopName: {item.shopName}
+                <div></div>
+                servedBy : {item.servedBy}
+                <div></div>
+                phoneNo : {item.phoneNo}
             </div>
         )
      })}

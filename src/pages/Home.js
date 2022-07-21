@@ -14,7 +14,7 @@ const Home = () => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const {user}=useSelector((state)=>({...state.auth}))
-  const {projects}=useSelector((state)=>({...state.project}))
+  const {projects ,loading}=useSelector((state)=>({...state.project}))
   console.log(projects);
 const userId =user?.result?._id
 console.log(userId);
@@ -22,6 +22,14 @@ useEffect(() => {
 
 dispatch(getProjectsByUser(userId))
 }, [userId])
+
+if(loading){
+  return( 
+  <div className="spinner">
+      <div className="spinner"><Spinner className="spinner"/></div>
+
+  </div>)
+}
   // const {project}=useSelector((state)=>({...state.project}))
   // console.log(project);
   // const {user}=useSelector((state)=>({...state.auth}))
@@ -37,7 +45,7 @@ dispatch(getProjectsByUser(userId))
 // if (user?.result?.name===projects.name) {
 return (
   <>
-  <div >
+  <div className='home-main'>
     
    {user ? navigate('/main'):navigate('/login') }
 </div>

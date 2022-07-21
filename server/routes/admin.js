@@ -16,6 +16,13 @@ router.get ('/',  async (req,res)=>{
     try {
         const users= await UserModal.aggregate([
             { $match : { } },
+            {
+                $group:{
+                    _id:'$month',
+                    total:{$sum:1},
+                    
+                }
+            }
             
             // { $match : { isAdmin : true } },
             // { $match : { supervisor : true } },
@@ -37,7 +44,79 @@ router.get ('/projects',  async (req,res)=>{
     // res.status(200).send(previosMonth)
     try {
         const users= await TourModal.aggregate([
-            { $match : { } },
+            // { $match : { total:'$amount'} },
+            {
+                $group:{
+                    _id:'$amount',
+                    
+                    total:{$sum:1}
+                }
+            }
+            
+            // { $match : { isAdmin : true } },
+            // { $match : { supervisor : true } },
+        ]);
+        res.status(200).send(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+
+
+})
+
+router.get ('/projects/single',  async (req,res)=>{
+    const previosMonth=moment()
+    .month(moment().month()-1)
+    .set('date',1)
+    .format('YYYY-MM-DD HH:mm:ss');
+    // res.status(200).send(previosMonth)
+    try {
+        const users= await TourModal.aggregate([
+            { $match : { apartment:'a'} },
+            
+            // { $match : { isAdmin : true } },
+            // { $match : { supervisor : true } },
+        ]);
+        res.status(200).send(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+
+
+})
+
+router.get ('/projects/singleb',  async (req,res)=>{
+    const previosMonth=moment()
+    .month(moment().month()-1)
+    .set('date',1)
+    .format('YYYY-MM-DD HH:mm:ss');
+    // res.status(200).send(previosMonth)
+    try {
+        const users= await TourModal.aggregate([
+            { $match : { apartment:'b'} },
+            
+            // { $match : { isAdmin : true } },
+            // { $match : { supervisor : true } },
+        ]);
+        res.status(200).send(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error)
+    }
+
+
+})
+router.get ('/projects/singlec',  async (req,res)=>{
+    const previosMonth=moment()
+    .month(moment().month()-1)
+    .set('date',1)
+    .format('YYYY-MM-DD HH:mm:ss');
+    // res.status(200).send(previosMonth)
+    try {
+        const users= await TourModal.aggregate([
+            { $match : { apartment:'c'} },
             
             // { $match : { isAdmin : true } },
             // { $match : { supervisor : true } },

@@ -1,36 +1,75 @@
 import { LinearProgress } from '@material-ui/core'
 import React from 'react'
+
 import {Link} from 'react-router-dom'
 import {AiOutlineArrowRight} from 'react-icons/ai'
-const StudentsProjects = ({createdAt,name,projectTitle,faculty
-,course,regNo, projectDesc
+import moment from 'moment'
+const StudentsProjects = ({_id,createdAt,name,apartment,houseNo
+,amount,plotA,plotB,idNo
 }) => {
   return (
-    <div className="main-card">
-      <div className="card">
-    <div className="one">
-      <p>{projectTitle}</p>
-      Project A<input type="checkbox" />
-      <button className="btn">Progress</button>
-    </div>
-    <div className="line"></div>
-    <div className="two">
-     <p>{projectDesc}</p> 
-    </div>
-    <div className="line"></div>
-    <div className="three">
-      <div>
-        <h5>{name}</h5>
-      projectadded on {createdAt}
+    <div className="tenant-cards">
+      <div className="details-card">
+        <h3>month of {moment().format('MM YYYY ')}</h3>
+    
+      {/* <h4> month of {createdAt}</h4> */}
+      <div className="align">
+        <p>Apartment: </p>
+        <p> {apartment}</p>
       </div>
-      <div className="icon">
+      <div className="line"></div>
+      <div className="align">
+        <p>Name:</p>
+        <p>{name}</p>
+      </div>
+      <div className="line"></div>
+   
+    {/* <div className="line"></div> */}
+    
+      <div className="align">
+        <p>Id Number:</p>
+        <p> {idNo}</p> 
+      </div>
+      <div className="line"></div>
+     <div className="align">
+      <div className="p">rent Paid</div>
+      <p> {amount}</p>
+     </div>
+      <div className="line"></div>
+    
+    {/* <div className="line"></div> */}
+    <div className="align">
+      <p className='balance'> balance:</p>
+      {plotA-amount}
+      <div>
+      
+      
+      {/* projectadded on {createdAt} */}
+     {/* <img src={imageFile} alt="" />  */}
+     <button className="btn">
+      Get Receipt
+     </button>
+     <div>
+      
+     </div>
+     {/* <Link to ={`/project/${_id}`}>
+      read more
+     </Link> */}
+      </div>
+      
+      {/* <div className="icon">
         <Link to='/milestone'>
            <AiOutlineArrowRight/>
         </Link>
-        </ div>
+        </ div> */}
     </div>
    </div>
-    </div>
+      {/* <Link to ='/'>
+      home
+     </Link> */}
+   </div>
+  
+    
    
   )
 }

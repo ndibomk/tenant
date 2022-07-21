@@ -1,20 +1,25 @@
 import mongoose from "mongoose";
 
 const tourSchema = mongoose.Schema({
-  projectTitle: {type:String,required:true},
+  apartment: {type:String,required:true},
   name:{type:String,required:true},
-  faculty:{type:String,required:true},
-  projectDesc: {type:String,required:true},
-  milestone: {type:String},
-  course:{type:String},
-  regNo: {type:String,required:true},
-  inProgress:Boolean,
-   milestoneDesc: {type:String},
-  
+  houseNo:{type:String,required:true},
+  amount: {type:Number,required:true},
+  idNo: {type:Number},
+  payment:{type:String},
+  currentRead:{type:Number},
+  lastRead:{type:Number},
+  plotA:{type:Number,default:15000},
+  plotB:{type:Number,default:17000},
+  waterFee:{type:Number},
+  datePaid:{type:String},
+  caretaker:{type:String},
+  imageFile:{type:String},
+  aptType:{type:String},
   creator: String,
   status:{
     type:String,
-    enum:['pending','success', 'rejected'],
+  enum:['pending','success', 'rejected'],
      default:'pending'
   },
  

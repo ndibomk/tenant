@@ -20,7 +20,7 @@ export const createMile = async (req, res) => {
 export const getMiles = async (req, res) => {
   const { page } = req.query;
   try {
-    // const tours = await TourModal.find();
+    // const tours = await MileModal.find();
     // res.status(200).json(tours);
 
     const limit = 6;
@@ -41,7 +41,7 @@ export const getMiles = async (req, res) => {
 export const getTour = async (req, res) => {
   const { id } = req.params;
   try {
-    const tour = await TourModal.findById(id);
+    const tour = await MileModal.findById(id);
     res.status(200).json(tour);
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
@@ -63,7 +63,7 @@ export const deleteTour = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).json({ message: `No tour exist with id: ${id}` });
     }
-    await TourModal.findByIdAndRemove(id);
+    await MileModal.findByIdAndRemove(id);
     res.json({ message: "Tour deleted successfully" });
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
@@ -86,7 +86,7 @@ export const updateTour = async (req, res) => {
       imageFile,
       _id: id,
     };
-    await TourModal.findByIdAndUpdate(id, updatedTour, { new: true });
+    await MileModal.findByIdAndUpdate(id, updatedTour, { new: true });
     res.json(updatedTour);
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
@@ -97,7 +97,7 @@ export const getToursBySearch = async (req, res) => {
   const { searchQuery } = req.query;
   try {
     const title = new RegExp(searchQuery, "i");
-    const tours = await TourModal.find({ title });
+    const tours = await MileModal.find({ title });
     res.json(tours);
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
@@ -107,7 +107,7 @@ export const getToursBySearch = async (req, res) => {
 export const getToursByTag = async (req, res) => {
   const { tag } = req.params;
   try {
-    const tours = await TourModal.find({ tags: { $in: tag } });
+    const tours = await MileModal.find({ tags: { $in: tag } });
     res.json(tours);
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
@@ -117,7 +117,7 @@ export const getToursByTag = async (req, res) => {
 export const getRelatedTours = async (req, res) => {
   const tags = req.body;
   try {
-    const tours = await TourModal.find({ tags: { $in: tags } });
+    const tours = await MileModal.find({ tags: { $in: tags } });
     res.json(tours);
   } catch (error) {
     res.status(404).json({ message: "Something went wrong" });
@@ -135,7 +135,7 @@ export const likeTour = async (req, res) => {
       return res.status(404).json({ message: `No tour exist with id: ${id}` });
     }
 
-    const tour = await TourModal.findById(id);
+    const tour = await MileModal.findById(id);
 
     const index = tour.likes.findIndex((id) => id === String(req.userId));
 
@@ -145,7 +145,7 @@ export const likeTour = async (req, res) => {
       tour.likes = tour.likes.filter((id) => id !== String(req.userId));
     }
 
-    const updatedTour = await TourModal.findByIdAndUpdate(id, tour, {
+    const updatedTour = await MileModal.findByIdAndUpdate(id, tour, {
       new: true,
     });
 

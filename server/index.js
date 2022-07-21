@@ -6,10 +6,13 @@ import userRouter from "./routes/user.js";
 import tourRouter from "./routes/tour.js";
 import dotenv from "dotenv";
 import milestone from './routes/milestone.js'
-import caretaker from './routes/caretaker.js'
+import vacation from './routes/vacation.js'
+import complain from './routes/complain.js'
 import users from './routes/admin.js'
 import analysis from './routes/admin.js'
 import mile from './routes/admin.js'
+import match from './routes/match.js'
+import complainMatch from './routes/matchVacation.js'
 
 
 const app = express();
@@ -23,10 +26,13 @@ app.use(cors());
 app.use("/users", userRouter); // http://localhost:5000/users/signup
 app.use("/project", tourRouter);
 app.use('/milestone', milestone)
-app.use('/caretaker', caretaker)
+app.use('/vacation', vacation)
+app.use('/complain', complain)
 app.use('/stats', users)
 app.use('/stats', analysis)
 app.use('/stats', mile)
+app.use('/stats', match)
+app.use('/stats', complainMatch)
 app.get("/", (req, res) => {
   res.send("Welcome to tour API");
 });
