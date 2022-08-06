@@ -37,8 +37,17 @@ import ComplainB from "./pages/ComplainB";
 import ComplainC from "./pages/ComplainC";
 import Profile from "./pages/Profile";
 import Footer from "./components/Footer";
+import AdminSidebar from "./pages/AdminSidebar";
+import AdminTenants from "./pages/AdminTenants";
+import AdminTotalRent from "./pages/AdminTotalRent";
+import AdminCaretaker from "./pages/AdminCaretaker";
+import Admin from './pages/Admin'
+import Summary from "./pages/Summary";
+import AdminDefault from "./pages/AdminDefault";
+import TenantA from "./pages/TenantA";
 
 function App() {
+  
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
   useEffect(() => {
@@ -49,6 +58,8 @@ function App() {
     <BrowserRouter>
     <ToastContainer/>
     <Header />
+  
+    {/* <AdminSidebar/> */}
      <Routes>
         <Route path="/" element={
           
@@ -59,7 +70,16 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/addproject" element={<StudentProjectCreate />} />
           <Route path="/editTour/:id" element={<StudentProjectCreate />} />
-              <Route path="/main" element={<Main />} />
+              <Route path="/main" element={<Main />} >
+              <Route path="summary" element={< AdminDefault/>} />
+              <Route path="admintenants" element={<AdminTenants/>} />
+             <Route path="admintotalrent" element={<AdminTotalRent/>} />
+             <Route path="admincaretaker" element={<AdminCaretaker/>} />
+             <Route index element={<Summary/>} />
+
+              </Route>
+              <Route path="/apartmentAr" element={<TenantA />} />
+
               <Route path="/milestone" element={<Caretaker />} />
               <Route path="/mileProject" element={<MileProjects />} />
               <Route path="/project/:id" element={<SingleProject />} />
@@ -80,7 +100,11 @@ function App() {
               <Route path="/complaina" element={<ComplainA/>} />
               <Route path="/complainb" element={<ComplainB/>} />
              <Route path="/complainc" element={<ComplainC/>} />
-             <Route path="/profile" element={<Profile/>} />
+             <Route path="/users/:id" element={<Profile/>} />
+            
+             {/* <Route path="/adminsidebar" element={<AdminSidebar/>} /> */}
+             {/* <Route path="/main" element={<Admin />}/> */}
+
 </Routes> 
      {/* <Footer/> */}
     </BrowserRouter>

@@ -20,7 +20,8 @@ const mileSchema = mongoose.Schema({
     enum:['pending','success', 'rejected'],
      default:'pending'
   }
-});
+},
+{timestamps:true});
 
 const MileModal = mongoose.model("caretaker", mileSchema);
 

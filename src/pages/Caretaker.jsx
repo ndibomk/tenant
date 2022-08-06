@@ -8,7 +8,7 @@ import {StyledForm} from './StyledForm'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createMilestone } from "../redux/features/mileSlice";
-import {AiOutlineArrowRight} from 'react-icons/ai'
+// import {AiOutlineArrowRight} from 'react-icons/ai'
 
 
 
@@ -75,7 +75,8 @@ const handleSubmit= (e)=>{
     <div className="icon">
       view
         <Link to='/mileProject'>
-           <AiOutlineArrowRight/>
+          go
+           {/* <AiOutlineArrowRight/> */}
         </Link>
         </ div>
       </StyledForm>

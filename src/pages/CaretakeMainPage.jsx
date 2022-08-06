@@ -34,7 +34,7 @@ const CaretakeMainPage = () => {
         <div className="tenant-header"> 
         <Link to='/caretaker'>
                 <button className='btn'>
-                    Caretker Roles
+                   Maintanance
                    
                 </button>
             </Link>
@@ -42,6 +42,11 @@ const CaretakeMainPage = () => {
             <Link to='/rent'>
                     <button className="btn">
                     Rent
+                    </button>
+                </Link>
+                <Link to='/addproject'>
+                    <button className="btn">
+                    Rent Payment
                     </button>
                 </Link>
             {/* <Caretaker/> */}

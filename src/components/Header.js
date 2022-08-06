@@ -39,11 +39,11 @@ const Header = () => {
   };
 
   return (
-    <MDBNavbar fixed="top" expand="lg" style={{ backgroundColor: "#f0e6ea" }}>
+    <MDBNavbar fixed="top" expand="lg" style={{ backgroundColor: "#CC9966" }}>
       <MDBContainer>
         <MDBNavbarBrand
           href="/"
-          style={{ color: "#606080", fontWeight: "600", fontSize: "22px" }}
+          style={{ color: "#606080", height:"80px",fontWeight: "600", fontSize: "22px" }}
         >
          <img className="logo" src={logo} alt="navi"/>
         </MDBNavbarBrand>
@@ -103,7 +103,7 @@ const Header = () => {
                 {/* Profile {user?.result?.name} */}
                 {/* </Link> 
               </h5> */}
-            // 
+
     </MDBNavbar>
   );
 };

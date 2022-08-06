@@ -1,108 +1,89 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useSelector } from 'react-redux';
-import {BsPeopleFill} from 'react-icons/bs'
+import styled from "styled-components";
+import { Outlet, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Admin = () => {
+const Dashboard = () => {
   const {user}=useSelector((state)=>({...state.auth}))
-  const userId =user?.result?._id
-  const [users,setUsers]=useState([]);
-  const [admin,setAdmin]=useState([]);
 
+  if (!user?.result?.isAdmin) return <p>Access denied. Not an Admin!</p>;
 
-  const [caretaker,setCareTaker]=useState([])
-  useEffect(()=>{
-    async function fetchData(){
-    try {
-      const res= await axios.get('http://localhost:5000/stats')
-      setUsers(  res.data)
-     } catch (error) {
-      console.log(error);
+  return (
+    <StyledDashboard>
+      <SideNav>
+        <h3>Quick Links</h3>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "link-active" : "link-inactive"
+          }
+          to="/main/admin/summary"
+        >
+          All 
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "link-active" : "link-inactive"
+          }
+          to="/admin/products"
+        >
+          Products
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "link-active" : "link-inactive"
+          }
+          to="/admin/orders"
+        >
+          Orders
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "link-active" : "link-inactive"
+          }
+          to="/admin/users"
+        >
+          Users
+        </NavLink>
+      </SideNav>
+      <Content>
+        <Outlet />
+      </Content>
+    </StyledDashboard>
+  );
+};
 
+export default Dashboard;
 
-      
-    }
-    }
-    fetchData()
-      },[])
+const StyledDashboard = styled.div`
+  display: flex;
+  height: 100vh;
+`;
 
-      useEffect(()=>{
-        async function fetchData(){
-        try {
-          const res= await axios.get('http://localhost:5000/stats/projects')
-          setAdmin(  res.data)
-         } catch (error) {
-          console.log(error);
-          
-        }
-        }
-        fetchData()
-          },[])
-         
-      
-          useEffect(()=>{
-            async function fetchData(){
-            try {
-              const res= await axios.get('http://localhost:5000/stats/caretaker')
-              setCareTaker(  res.data)
-             } catch (error) {
-              console.log(error);
-              
-            }
-            }
-            fetchData()
-              },[])
-      
-        return (
-          <>
-          <div  style={{marginTop:'10rem'}} className="admin">
-          {/* https://images.pexels.com/photos/3637083/pexels-photo-3637083.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 */}
-          <h5> <BsPeopleFill/> {user?.result?.name}</h5>
-          </div>
-          
-           <div style={{marginTop:'10rem'}}>
-            <h2>Admin dashboard</h2>
-          {users.map((items)=>{
-            return(
-              <>
-              <div>
-                {items.total-4}     
-              </div>
-               <div>
-              3  
-               
-             </div>
-              </>
-              
-            )
-          })}
-          </div> 
-<div >
-          {caretaker.map((items)=>{
-            return(
-              <div>
-                {items.apartment}   
-                {/* {items.amount} */}
-              </div>
-            )
-          })}
-          </div>
-          <div style={{marginTop:'10rem'}}>
-          {admin.map((items)=>{
-            return(
-              <div>
-                {items._id * items.total }
-                {items.length}
-                
-              </div>
-            )
-          })}
-          </div>
-           
-          </>
-        )
-      
- 
-}
+const SideNav = styled.div`
+  border-right: 1px solid gray;
+  height: calc(100vh - 70px);
+  position: fixed;
+  overflow-y: auto;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 
-export default Admin
+  h3 {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 17px;
+  }
+
+  a {
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+`;
+
+const Content = styled.div`
+  margin-left: 200px;
+  padding: 2rem 3rem;
+  width: 100%;
+`;

@@ -25,20 +25,21 @@ const Vacations = () => {
   return (
 
     
-    <div className='rent-page'>
-   <p className="header">Vacations</p>
+    <div className='rent-pages'>
+   <p className="header" id='vacatetitle'>Vacations</p>
+   
   
         <div className='rent-card'>
         {user?.result?.apartment==='a' ?
-          <Link to='/vacationa'>
+          <Link className='apartment'   to='/vacationa'>
           Apartment A</Link> : null}
       </div>  
-      <div className='rent-card'>
-      {user?.result?.apartment==='b' ?<Link to='/vacationb'>
+      <div className='rent-cards'>
+      {user?.result?.apartment==='b' ?<Link className='apartment'  to='/vacationb'>
           Apartment B</Link> : null}
       </div> 
-      <div className='rent-card'>
-      {user?.result?.apartment==='c' ?<Link to='/vacationc'>
+      <div className='rent-cards'>
+      {user?.result?.apartment==='c' ?<Link className='apartment'  to='/vacationc'>
           Apartment C</Link>: null}
       </div>    
 </div>

@@ -24,21 +24,22 @@ const Complains = () => {
   return (
     <>
      
-     <div className='rent-page'>
+     <div className='rent-pages'>
    <p className="header">Complains</p>
   
-        
-        {user?.result?.apartment==='a' ?<Link to='/complaina'>
+   <div className="rent-card">
+        {user?.result?.apartment==='a' ?<Link className='apartment'  to='/complaina'>
           Apartment A</Link>:null}
+          </div>
+          <div className="rent-cards">
       
-      
-      {user?.result?.apartment==='b' ?<Link to='/complainb'>
+      {user?.result?.apartment==='b' ?<Link className='apartment'  to='/complainb'>
           Apartment B</Link>: null}
-     
-   
-      {user?.result?.apartment==='c' ?<Link to='/complainc'>
+     </div>
+          <div className="rent-cards">
+      {user?.result?.apartment==='c' ?<Link className='apartment'  to='/complainc'>
           Apartment C</Link>:null}
-                
+                </div>
 </div>
     
  </> 

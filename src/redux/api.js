@@ -12,6 +12,7 @@ API.interceptors.request.use((req) => {
   }
   return req;
 });
+export const deleteUser = (id) => API.delete(`/stats/${id}`);
 
 export const signIn = (formData) => API.post("/users/signin", formData);
 export const signUp = (formData) => API.post("/users/signup", formData);
@@ -19,13 +20,14 @@ export const googleSignIn = (result) => API.post("/users/googleSignIn", result);
 export const getMiles = () => API.get("/milestone");
 export const createComplain = (formData) => API.post("/complain", formData);
 export const createVacation = (formData) => API.post("/vacation", formData);
+export const deleteMilestone = (id) => API.delete(`/milestone/${id}`);
 
 export const createTour = (formData) => API.post("/project", formData);
 export const getTours = () => API.get("/project");
 export const getTour = (id) => API.get(`/project/${id}`);
 export const deleteTour = (id) => API.delete(`/project/${id}`);
 export const updateTour = (updatedTourData, id) =>
-  API.patch(`/tour/${id}`, updatedTourData);
+  API.patch(`/project/${id}`, updatedTourData);
   export const getProjectsByUser = (userId) => API.get(`/project/userProjects/${userId}`);
   export const getMilesByUser = (userId) => API.get(`/milestone/miles/${userId}`);
   export const createMile = (updateddata) => API.post("/milestone", updateddata);

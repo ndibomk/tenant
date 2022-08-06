@@ -72,7 +72,7 @@ export const deleteTour = async (req, res) => {
 
 export const updateTour = async (req, res) => {
   const { id } = req.params;
-  const { title, description, creator, imageFile, tags } = req.body;
+  const { name, apartment, creator, imageFile, houseNO, } = req.body;
   try {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).json({ message: `No tour exist with id: ${id}` });
@@ -80,9 +80,9 @@ export const updateTour = async (req, res) => {
 
     const updatedTour = {
       creator,
-      title,
-      description,
-      tags,
+      name,
+      apartment,
+      houseNO,
       imageFile,
       _id: id,
     };

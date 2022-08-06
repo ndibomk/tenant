@@ -5,11 +5,12 @@ import moment from "moment";
 
 import axios from 'axios';
 import { getTour } from '../redux/features/projectSlice';
+import { display } from '@mui/system';
 const SingleProject = () => {
 const [users,setUsers]=useState([]);
 const dispatch = useDispatch();
 const { tour, relatedTours } = useSelector((state) => ({ ...state.project }));
-
+console.log(tour);
     const { id } = useParams();
     // useEffect(()=>{
     //     async function fetchData(){
@@ -41,11 +42,14 @@ const { tour, relatedTours } = useSelector((state) => ({ ...state.project }));
 
  
   return (
-    <div style={{marginTop:'10rem'}}>
-        
-       {tour.name}
+    <div style={{marginTop:'10rem', display:'flex'}}>
+       <p>{tour.name}</p>
+       <p>{tour.apartment}</p>
+      <p>{tour.aptType}</p> 
+      <p>{tour.houseNo}</p>  
+      <p> {tour.amount}</p>
        <div></div>
-       {users.projectTitle}
+     
        <div></div>
         SingleProject</div>
   )

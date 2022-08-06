@@ -26,7 +26,8 @@ plotB:{type:Number,default:15000},
     default: new Date(),
   },
   
-});
+},
+{timestamps:true});
 
 const TourModal = mongoose.model("complain", tourSchema);
 

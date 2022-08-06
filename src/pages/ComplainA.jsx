@@ -19,6 +19,8 @@ const ComplainA = () => {
           },[])
 
   return (
+    <>
+    <h4 className='headers'>Apartment A all Complains</h4>
     <div  className='rent-page'>
     {admin.map((items)=>{
       return(
@@ -35,7 +37,7 @@ const ComplainA = () => {
       )
     })}
     </div>
-  )
+ </> )
 }
 
 export default ComplainA

@@ -22,13 +22,26 @@ export const register = createAsyncThunk(
     try {
       const response = await  axios.post(`${api}/signup`,formValue);
       toast.success("Register Successfully");
-      navigate("/");
+      navigate("/login");
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
   }
 );
+export const deleteUser = createAsyncThunk(
+  "auth/deleteUser",
+  async ({ id, toast }, { rejectWithValue }) => {
+    try {
+      const response = await api.deleteUser(id);
+      toast.success("Deleted Successfully");
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  }
+);
+
 
 export const googleSignIn = createAsyncThunk(
   "auth/googleSignIn",
@@ -94,6 +107,23 @@ const authSlice = createSlice({
       state.user = action.payload;
     },
     [googleSignIn.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    [deleteUser.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [deleteUser.fulfilled]: (state, action) => {
+      state.loading = false;
+      const {
+        arg: { id },
+      } = action.meta;
+      if (id) {
+        state.user = state.user.filter((item) => item._id !== id);
+        state.user = state.user.filter((item) => item._id !== id);
+      }
+    },
+    [deleteUser.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },

@@ -13,9 +13,13 @@ const tourSchema = mongoose.Schema({
   plotB:{type:Number,default:17000},
   waterFee:{type:Number},
   datePaid:{type:String},
-  caretaker:{type:String},
+  phone:{type:String},
   imageFile:{type:String},
   aptType:{type:String},
+  arrears:{type:String},
+  wifi:{type:String},
+  penalties:{type:String},
+  balance:{type:String},
   creator: String,
   status:{
     type:String,
@@ -29,7 +33,8 @@ const tourSchema = mongoose.Schema({
     default: new Date(),
   },
   
-});
+},
+{timestamps:true});
 
 const TourModal = mongoose.model("Tour", tourSchema);
 

@@ -32,10 +32,13 @@ const CaretakerPogress = () => {
 
    
   return (
-    <div>
+    <>
+  <h2 className='caretaker-text'>Hello {user?.result?.name} this your page</h2>
+    <div className='caretaker-card'>
+      
      {users && users.map((item)=>{
         return(
-            <div>
+            <div className='details-cards'>
             apartment :   {item.apartment}
                 <div></div>
                 name:  {item.name}
@@ -52,7 +55,7 @@ const CaretakerPogress = () => {
             </div>
         )
      })}
-    </div>
+    </div></>
   )
 }
 

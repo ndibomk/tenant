@@ -19,25 +19,26 @@ const VacationsA = () => {
           },[])
 
   return (
+    <>
+    <h4 className='headers'>Apartment B all Vacations</h4>
     <div  className='rent-page'>
     {admin.map((items)=>{
       return(
         <div className='rent-card'>
 
-              <p>Name: {items.name}</p>
-              <p> RentPaid: {items.reason}</p>
-              <p> RentPaid: {items.remTime}</p>
-              <p>ApartMent: {items.apartment}</p>
-              <p> HouseNo: {items.houseNo}</p>
-              <p>IdNo: {items.idNo}</p>
-              <p>WaterFee: {items.condition}</p> 
-              <p>balance: 00</p>
-              z
+              <p className='cardtitles'> <p> Name:   </p> <p>{items.name}</p> </p>
+              <p className='cardtitles'> <p>Reason: </p>   <p>{items.reason}</p> </p>
+              <p className='cardtitles'> <p>Remaining Time in The month:</p>  <p>{ ('') }{items.remTime}</p> </p>
+              <p className='cardtitles'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
+              <p className='cardtitles'> <p>HouseNo:</p> <p>{items.houseNo}</p> </p>
+              <p className='cardtitles'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
+              <p className='cardtitles'> <p>Condition of The house:</p> <p>{items.codition}</p> </p> 
+              
               </div>
       )
     })}
     </div>
-  )
+  </>)
 }
 
 export default VacationsA

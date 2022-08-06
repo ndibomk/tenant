@@ -7,7 +7,7 @@ const Dashboard = () => {
   const { user } = useSelector((state) => ({ ...state.auth }));
 
   return (
-    <div style={{margin:'15rem'}}>Dashboard
+    <div style={{margin:'15rem'}} >Dashboard
     <StudentProjectCreate/>
     <Projects/>
     {/* <StudentsProjects/> */}

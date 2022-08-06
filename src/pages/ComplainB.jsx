@@ -18,7 +18,8 @@ const ComplainB = () => {
         fetchData()
           },[])
 
-  return (
+  return (<>
+    <h4 className='headers'>Apartment B all Complains</h4>
     <div  className='rent-page'>
     {admin.map((items)=>{
       return(
@@ -35,7 +36,7 @@ const ComplainB = () => {
       )
     })}
     </div>
-  )
+  </>)
 }
 
 export default ComplainB

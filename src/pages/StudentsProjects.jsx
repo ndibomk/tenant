@@ -1,25 +1,47 @@
-import { LinearProgress } from '@material-ui/core'
 import React from 'react'
-
+import jsPDF from 'jspdf'
 import {Link} from 'react-router-dom'
-import {AiOutlineArrowRight} from 'react-icons/ai'
+// import {AiOutlineArrowRight} from 'react-icons/ai'
 import moment from 'moment'
-const StudentsProjects = ({_id,createdAt,name,apartment,houseNo
+const StudentsProjects = ({_id,createdAt,name,aptType,apartment,houseNo
 ,amount,plotA,plotB,idNo
 }) => {
+
+const a=()=>{
+if(aptType==='1bedroom'){
+  return amount-plotA
+}else return amount-plotB
+}
+console.log('rebt ', );
+  const doc= ()=>{
+    var pdf =new jsPDF('landscape', 'px','a4','false');
+    
+    
+    pdf.text(30,10,`month of ${moment().format('MM YYYY ')}`)
+    pdf.text(30,30,`name: ${name}`)
+    pdf.text(30,50,`Amount: ${amount}`)
+    pdf.text(30,70,`Apartment: ${apartment}`)
+    pdf.text(30,85,`name: ${houseNo}`)
+    pdf.text(30,100,`balance: ${amount-plotA}`)
+    
+    
+    pdf.save('recipt.pdf')
+  }
   return (
     <div className="tenant-cards">
       <div className="details-card">
-        <h3>month of {moment().format('MM YYYY ')}</h3>
+        <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
     
       {/* <h4> month of {createdAt}</h4> */}
       <div className="align">
-        <p>Apartment: </p>
+
+        <p className='cardtitle'>Apartment:</p>
         <p> {apartment}</p>
+
       </div>
       <div className="line"></div>
       <div className="align">
-        <p>Name:</p>
+        <p className='cardtitle'>Name:</p>
         <p>{name}</p>
       </div>
       <div className="line"></div>
@@ -27,34 +49,31 @@ const StudentsProjects = ({_id,createdAt,name,apartment,houseNo
     {/* <div className="line"></div> */}
     
       <div className="align">
-        <p>Id Number:</p>
+        <p className='cardtitle'>Id Number:</p>
         <p> {idNo}</p> 
       </div>
       <div className="line"></div>
      <div className="align">
-      <div className="p">rent Paid</div>
+      <div id="p"className='cardtitle'>rent Paid</div>
       <p> {amount}</p>
      </div>
       <div className="line"></div>
     
     {/* <div className="line"></div> */}
-    <div className="align">
-      <p className='balance'> balance:</p>
+    <div className="align" >
+      <p id='balance' className='cardtitle'> balance:</p>
       {plotA-amount}
+      <br />
       <div>
       
       
       {/* projectadded on {createdAt} */}
      {/* <img src={imageFile} alt="" />  */}
-     <button className="btn">
-      Get Receipt
-     </button>
-     <div>
-      
-     </div>
-     {/* <Link to ={`/project/${_id}`}>
+     
+     
+     <Link to ={`/project/${_id}`}>
       read more
-     </Link> */}
+     </Link>
       </div>
       
       {/* <div className="icon">
@@ -63,6 +82,9 @@ const StudentsProjects = ({_id,createdAt,name,apartment,houseNo
         </Link>
         </ div> */}
     </div>
+    <button onClick={doc} className="btn" id='btnreceipt' >
+      Get Receipt
+     </button>
    </div>
       {/* <Link to ='/'>
       home

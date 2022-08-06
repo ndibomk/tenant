@@ -60,20 +60,23 @@ navigate('/')
                   }
               
   return (
-    <div className='rent-single-page' style={{marginTop:'8rem'}}>
+    <div className='rent-pages' style={{marginTop:'8rem'}}>
     <p className="header">Rents</p>
    
-    <div className='rent-page'>
-      <div>     
-         Hello  caretaker click here to view your tenats rents {user?.result?.name}
-</div>
-<div> 
-  {user?.result?.apartment==='a' ?<Link className='apartment' to='/apartmentA'>View Rents Progress</Link> :null }
-   
-      {user?.result?.apartment==='b' ?<Link to='/apartmentB'>Apartment b</Link> : null }
-      {user?.result?.apartment==='c' ? <Link to='/apartmentC'>Apartment c</Link> : null }
+    {/* Hello   {user?.result?.name} */}
+    <div className='rent-card'>
+    
+
+  {user?.result?.apartment==='a' ?<Link className='apartment' to='/apartmentA'>  <h5 className='text'>Click To view</h5>Aparment A</Link> :null }
    </div>
-     
+   <div className="rent-cards">
+    
+      {user?.result?.apartment==='b' ?<Link className='apartment'  to='/apartmentB'> <h5>Click To view</h5>Apartment b</Link> : null }
+      </div>
+      <div className="rent-cards">
+      {user?.result?.apartment==='c' ? <Link className='apartment'  to='/apartmentC'> <h5>Click To view</h5>Apartment c</Link> : null }
+   
+     </div>
      {/* {caretaker.data?.map((i)=>{
       return(
         <div>
@@ -102,7 +105,7 @@ navigate('/')
       })}   </div>
       )
      })} */}
-    </div>
+    
     
  </div> )
 }

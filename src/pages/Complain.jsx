@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import { productsCreate } from '../redux/features/tourSlice';
 import {toast} from 'react-toastify'
 import { createProject } from '../redux/features/projectSlice';
-import ChipInput from "material-ui-chip-input";
 import FileBase from "react-file-base64";
 import { createComplain } from '../redux/features/complain';
 
@@ -37,7 +36,7 @@ const StudentProjectCreate = () => {
         const updateddata={...users, name:user?.result.name}
        
        dispatch(createComplain(updateddata,toast))
-       
+       navigate('/')
        }
    }
   const cancelCourse = () => { 
@@ -55,7 +54,7 @@ useEffect(() => {
 return (
  
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'10rem'}} className='form'>
-  <h2>Create a Project</h2>
+  <h2>Add A Complain</h2>
   <div className="main-rent-create">
   <div className="rent-split-start">
     <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/>

@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import { productsCreate } from '../redux/features/tourSlice';
 import {toast} from 'react-toastify'
 import { createProject } from '../redux/features/projectSlice';
-import ChipInput from "material-ui-chip-input";
 import FileBase from "react-file-base64";
 import { createComplain } from '../redux/features/complain';
 import { createVacation } from '../redux/features/vacation';
@@ -39,7 +38,7 @@ const StudentProjectCreate = () => {
         const updateddata={...users, name:user?.result.name}
        
        dispatch(createVacation(updateddata,toast))
-       
+       navigate('/')
        }
    }
   const cancelCourse = () => { 
@@ -57,7 +56,7 @@ useEffect(() => {
 return (
  
   <StyledForm id='cancelCourse' onSubmit={handleSubmit} style={{marginTop:'10rem'}} className='form'>
-  <h2>Create a Project</h2>
+  <h2>Add A Vacation Notice</h2>
   <div className="main-rent-create">
   <div className="rent-split-start">
     <input className='form-input' type='text'  placeholder='Apartment Name' onChange={(e)=> setUser({...users , apartment:e.target.value})} required/>
@@ -67,7 +66,7 @@ return (
     </div>
     <div className="rent-split">
     <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
-      <input className='form-input' type='text' placeholder='Complain' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
+      <input className='form-input' type='text' placeholder='Reason' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
       <input className='form-input' type='text' placeholder='Codition of the house' onChange={(e)=> setUser({...users ,codition:e.target.value})}/>
 
       <input className='form-input' type='text' placeholder='Remening time in the month inn days' onChange={(e)=> setUser({...users ,remTime:e.target.value})}/>
