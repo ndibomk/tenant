@@ -12,8 +12,13 @@ import users from './routes/admin.js'
 import analysis from './routes/admin.js'
 import mile from './routes/admin.js'
 import match from './routes/match.js'
+import twilio  from 'twilio'
 import complainMatch from './routes/matchVacation.js'
 
+//twilio requirements -- Texting API 
+// const accountSid = '___YOUR___ACCOUNT__SID';
+// const authToken = '___YOUR___AUTHENTICATION__TOKEN'; 
+// const client = new twilio(accountSid, authToken);
 
 const app = express();
 dotenv.config();
@@ -36,6 +41,24 @@ app.use('/stats', complainMatch)
 app.get("/", (req, res) => {
   res.send("Welcome to tour API");
 });
+
+
+//Twilio 
+// app.get('/send-text', (req, res) => {
+//   //Welcome Message
+//   res.send('Hello to the Twilio Server')
+
+//   //_GET Variables
+//   const { recipient, textmessage } = req.query;
+
+
+//   //Send Text
+//   client.messages.create({
+//       body: textmessage,
+//       to: recipient,  // Text this number
+//       from: '+15074734314' // From a valid Twilio number
+//   }).then((message) => console.log(message.body));
+// })
 
 const port = process.env.PORT || 5000;
 

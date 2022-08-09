@@ -9,7 +9,7 @@ const AdminTotalRent = () => {
 useEffect(()=>{
     async function fetchData(){
     try {
-      const res= await axios.get('http://localhost:5000/stats/chartss')
+      const res= await axios.get('http://localhost:5000/stats/vacations')
       setTours(  res.data)
       console.log('hey',tours);
      } catch (error) {
@@ -28,7 +28,10 @@ useEffect(()=>{
           return(
             <div className='datas'>
               <p>Name: {item.name}</p>
-             <p> Aparment{item.apartment}</p> 
+             <p> Aparment: {item.apartment}</p> 
+             <p> HouseNo: {item.houseNo}</p> 
+             <p> Reason: {item.reason}</p> 
+             <p> Notice Date: {item.remTime}</p> 
              <div className="buttons">
               <button className="btn">delete</button>
               <button className="btn">view</button>

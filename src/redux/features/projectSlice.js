@@ -217,7 +217,7 @@ export const getRelatedTours = createAsyncThunk(
       },
       [getTour.fulfilled]: (state, action) => {
         state.loading = false;
-        state.tour = action.payload;
+        state.projects = action.payload;
       },
       [getTour.rejected]: (state, action) => {
         state.loading = false;
@@ -282,7 +282,7 @@ export const getRelatedTours = createAsyncThunk(
       },
       [searchTours.fulfilled]: (state, action) => {
         state.loading = false;
-        state.tours = action.payload;
+        state.projects = action.payload;
       },
       [searchTours.rejected]: (state, action) => {
         state.loading = false;

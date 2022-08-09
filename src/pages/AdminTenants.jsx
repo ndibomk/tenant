@@ -1,23 +1,48 @@
 import React from 'react'
 import { useState } from 'react'
+import {
+ 
+  MDBIcon,
+  
+} from "mdb-react-ui-kit";
 import { useEffect } from 'react'
-import { deleteTour } from "../redux/features/projectSlice";
+import { deleteTour, searchTours } from "../redux/features/projectSlice";
 import {toast} from 'react-toastify'
 
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Profile from './Profile';
 import { deleteUser } from '../redux/features/authSlice';
+import moment from 'moment';
 const AdminTenants = () => {
+  const [search,setSearch]=useState("")
     const dispatch=useDispatch()
+    const navigate=useNavigate()
       const [tours,setTours]=useState([])
 // const {tours}=useSelector((state)=>state.project)
 // console.log(tours);
+
+const handleSearch= async (event)=>{
+  event.preventDefault()
+  let key =event.target.value
+  if(key){
+   let result= await fetch(`http://localhost:5000/project/search${key}`)
+result=await result.json()
+if(result){
+  setTours(result)
+  
+} console.log(` `,result);
+  }else{
+    setTours()
+  }
+
+
+}
 useEffect(()=>{
     async function fetchData(){
     try {
-      const res= await axios.get('http://localhost:5000/stats/users')
+      const res= await axios.get('http://localhost:5000/stats/chartss')
       setTours(  res.data)
       console.log('hey',tours);
      } catch (error) {
@@ -31,31 +56,54 @@ useEffect(()=>{
       },[])
       const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this tour ?")) {
-          dispatch(deleteUser({ id, toast }));
+          dispatch(deleteTour({ id, toast }));
         }
       };
 
   return (
     <div>
-         {tours && tours?.map((item)=>{
+<input type="text" placeholder='Search by house Number' onChange={handleSearch} />
+                <div style={{marginLeft:'5px'}}>
+                  <MDBIcon fas icon='serach'/>
+                </div>
+             
+         {tours && tours?.map((items)=>{
           return(
             <div className='datas'>
-                 
-              <p>Name: {item.name}</p>
-             <p> Email: {item.email} {}</p> 
-             {/* <p> Amount: {item.amount}</p> 
-             <p> HouseNo:{item.houseNo}</p> 
-             <p> House: {item.aptType}</p>  */}
+              
+              <h3 className='month'>month of {moment().format('MM YYYY ')}</h3>
 
-             <p> Id:{item.idNo}</p> 
+{/* <p>Name: {items.name}</p>
+<p> RentPaid: {items.amount}</p>
+<p>ApartMent: {items.apartment}</p>
+<p> HouseNo: {items.houseNo}</p>
+<p>IdNo: {items.idNo}</p>
+<p>WaterFee: {items.waterFee}</p>  */}
+<p className='rentss'> <p> Name:   </p> <p>{items.name}</p> </p>
+<p className='rentss'> <p>RentPaid: </p>   <p>{items.amount}</p> </p>
+<p className='rentss'> <p>HouseNo:</p>  <p>{ ('') }{items.houseNo}</p> </p>
+<p className='rentss'> <p>ApartMent Name:</p> <p>{items.apartment}</p> </p>
+<p className='rentss'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
+<p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
+<p className='rentss'> <p>Last Water Read:</p> <p>{items.lastRead}</p> </p> 
+<p className='rentss'> <p>Method of payment:</p> <p>{items.payment}</p> </p> 
+<p className='rentss'> <p>Date of Payment:</p> <p>{items.datePaid}</p> </p> 
+<p className='rentss'> <p>Type of the rental:</p> <p>{items.aptType}</p> </p> 
+<p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
+
+
+Balance:
+<p>{items.aptType==='1bedroom' ? items.plotA-items.amount: null}</p>
+<p>{items.aptType==='2bedroom' ? items.plotA-items.amount: null}</p>
+
 
              <div className="buttons">
-             <button className="btn"onClick={() => handleDelete(item._id)}
+             <button className="btn"onClick={() => handleDelete(items._id)}
 >
           delete
             </button>
     <button className="btn">
-    <Link to ={`/users/${item._id}`}>
+    <Link to ={`/users/${items._id}`}>
       read more
      </Link>
     </button>

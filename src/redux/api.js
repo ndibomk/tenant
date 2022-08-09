@@ -33,7 +33,7 @@ export const updateTour = (updatedTourData, id) =>
   export const createMile = (updateddata) => API.post("/milestone", updateddata);
 
 export const getToursBySearch = (searchQuery) =>
-  API.get(`/tour/search?searchQuery=${searchQuery}`);
+  API.get(`/project/search?searchQuery=${searchQuery}`);
 
 export const getTagTours = (tag) => API.get(`/tour/tag/${tag}`);
 export const getRelatedTours = (tags) => API.post(`/tour/relatedTours`, tags);

@@ -7,16 +7,27 @@ import {
   getRelatedTours,
   getTour,
   getTours,
-  getToursBySearch,
+  
   getToursByTag,
   getToursByUser,
   likeTour,
   updateTour,
 } from "../controllers/tour.js";
+import TourModal from "../models/tour.js";
 const router = express.Router();
 
 
-router.get("/search", getToursBySearch);
+router.get("/search:key", async (req,res)=>{
+  let result=await TourModal.find({
+    "$or":[
+      {
+        houseNo:{$regex:req.params.key},
+        
+      }
+    ]
+  })
+  res.send(result)
+});
 router.get("/tag/:tag", getToursByTag);
 router.post("/relatedTours", getRelatedTours);
 router.get("/", getTours);

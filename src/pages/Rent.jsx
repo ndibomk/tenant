@@ -67,16 +67,65 @@ navigate('/')
     <div className='rent-card'>
     
 
-  {user?.result?.apartment==='a' ?<Link className='apartment' to='/apartmentA'>  <h5 className='text'>Click To view</h5>Aparment A</Link> :null }
+  {user?.result?.houseNo==='G1' ?<Link className='apartment' to='/apartmentAr'>  <h5 className='text'></h5>Rent Progress</Link> :null }
    </div>
    <div className="rent-cards">
     
-      {user?.result?.apartment==='b' ?<Link className='apartment'  to='/apartmentB'> <h5>Click To view</h5>Apartment b</Link> : null }
+      {user?.result?.houseNo==='G2' ?<Link className='apartment'  to='/g2'> Rent Progress</Link> : null }
       </div>
       <div className="rent-cards">
-      {user?.result?.apartment==='c' ? <Link className='apartment'  to='/apartmentC'> <h5>Click To view</h5>Apartment c</Link> : null }
-   
-     </div>
+    
+      {user?.result?.houseNo==='1A' ?<Link className='apartment'  to='/1a'> Rent Progress</Link> : null }
+      </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='1B' ?<Link className='apartment'  to='/1b'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='1C' ?<Link className='apartment'  to='/1c'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='1D' ?<Link className='apartment'  to='/1d'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='2A' ?<Link className='apartment'  to='/2a'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='2B' ?<Link className='apartment'  to='/2b'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='2C' ?<Link className='apartment'  to='/2c'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='2D' ?<Link className='apartment'  to='/2d'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='3A' ?<Link className='apartment'  to='/3a'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='3B' ?<Link className='apartment'  to='/3b'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='3C' ?<Link className='apartment'  to='/3c'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='3D' ?<Link className='apartment'  to='/3d'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='4A' ?<Link className='apartment'  to='/4a'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='4B' ?<Link className='apartment'  to='/4b'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='4C' ?<Link className='apartment'  to='/4c'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='4D' ?<Link className='apartment'  to='/4d'> Rent Progress</Link> : null }
+    </div><div className="rent-cards">
+    
+    {user?.result?.houseNo==='5A' ?<Link className='apartment'  to='/5a'> Rent Progress</Link> : null }
+    </div>
+      
      {/* {caretaker.data?.map((i)=>{
       return(
         <div>

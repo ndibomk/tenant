@@ -1,15 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const TenantMainPage = () => {
+    const {user}=useSelector((state)=>({...state.auth}))
+
   return (
     <div className="tenant-page">
         <div className="tenant-header">
-            <Link to='/dashboard'>
-                    <button className='btn'>
-                        Dashboard
-                    </button>
-                </Link>
+        
+    
+
+ <Link className='apartment' to='/rent'>  <button className="btn">Dashboard</button></Link> 
+
                 <Link to='/addProject'>
                     <button className='btn'>
                         Pay Rent

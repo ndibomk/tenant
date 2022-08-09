@@ -68,14 +68,17 @@ if(user?.result?.isAdmin){
         <div style={{marginTop:'10rem'}}>
             <StyledDashboard>
       <SideNav>
-        <h3>Quick Links</h3>
+        <Link to='/'>
+          <h3 style={{color:'whitesmoke'}}>Quick Links</h3>
+        </Link>
+        
         <NavLink
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
           }
-          to="/main/summary"
+          to="summary"
         >
-          Summary
+          Complains
         </NavLink>
         {/* <NavLink
           className={({ isActive }) =>
@@ -91,15 +94,15 @@ if(user?.result?.isAdmin){
           }
           to="/main/admincaretaker"
         >
-          Caretaker
+        Maintanance
         </NavLink>
         <NavLink
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
           }
-          to="/main/admintenants"
+          to="/main/admintotalrent"
         >
-          Users
+          Vacations
         </NavLink>
       </SideNav>
       <Content>
@@ -125,7 +128,7 @@ if(user?.result?.caretaker ){
       
     <div className="right" >
       <TenantMainPage/>
-      <TestRent/>
+      {/* <TestRent/> */}
     
          
     </div>

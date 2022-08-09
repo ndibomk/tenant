@@ -93,16 +93,7 @@ export const updateTour = async (req, res) => {
   }
 };
 
-export const getToursBySearch = async (req, res) => {
-  const { searchQuery } = req.query;
-  try {
-    const title = new RegExp(searchQuery, "i");
-    const tours = await TourModal.find({ title });
-    res.json(tours);
-  } catch (error) {
-    res.status(404).json({ message: "Something went wrong" });
-  }
-};
+
 
 export const getToursByTag = async (req, res) => {
   const { apartment } = req.params;

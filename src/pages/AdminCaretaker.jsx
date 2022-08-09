@@ -16,7 +16,7 @@ const AdminCaretaker = () => {
 useEffect(()=>{
     async function fetchData(){
     try {
-      const res= await axios.get('http://localhost:5000/stats/users/caretaker')
+      const res= await axios.get('http://localhost:5000/stats/caretaker')
       setTours(  res.data)
       console.log('hey',tours);
      } catch (error) {
@@ -37,11 +37,12 @@ useEffect(()=>{
 
   return (
     <div>
+      <h4>Hello</h4>
          {tours && tours?.map((item)=>{
           return(
             <div className='datas'>
                 <div></div>
-              <p>Name: {item.name}</p>
+              <p>Item Name: {item.name}</p>
              <p> Apartment: {item.apartment} {}</p> 
              <p>Item: {item.item}</p>
              <p>Quantity: {item.quantity}</p>

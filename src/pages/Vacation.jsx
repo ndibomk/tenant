@@ -67,7 +67,6 @@ return (
     <div className="rent-split">
     <input className='form-input' type='date' placeholder='date' onChange={(e)=> setUser({...users ,createdAt:e.target.value})} required/>
       <input className='form-input' type='text' placeholder='Reason' onChange={(e)=> setUser({...users ,reason:e.target.value})}/>
-      <input className='form-input' type='text' placeholder='Codition of the house' onChange={(e)=> setUser({...users ,codition:e.target.value})}/>
 
       <input className='form-input' type='text' placeholder='Remening time in the month inn days' onChange={(e)=> setUser({...users ,remTime:e.target.value})}/>
 </div>
