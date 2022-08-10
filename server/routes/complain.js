@@ -12,14 +12,28 @@ import {
   likeTour,
   updateTour,
 } from "../controllers/complain.js"
+import ComplainModal from "../models/complains.js";
+
 const router = express.Router();
 
 
-router.get("/search", getToursBySearch);
 router.get("/tag/:tag", getToursByTag);
 router.post("/relatedTours", getRelatedTours);
 router.get("/", getTours);
 router.get("/:id", getTour);
+
+router.get("/search:key", async (req,res)=>{
+  let result=await ComplainModal.find({
+    "$or":[
+      {
+        houseNo:{$regex:req.params.key},
+        
+      }
+    ]
+  })
+  res.send(result)
+});
+
 
 router.post("/", auth, createTour);
 router.delete("/:id", auth, deleteTour);

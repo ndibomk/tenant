@@ -62,8 +62,9 @@ useEffect(()=>{
 
   return (
     <div>
+      <h4>Rents Tenant Progress</h4>
 <input type="text" placeholder='Search by house Number' onChange={handleSearch} />
-                <div style={{marginLeft:'5px'}}>
+                <div styls={{marginLeft:'5px'}}>
                   <MDBIcon fas icon='serach'/>
                 </div>
              
@@ -86,19 +87,24 @@ useEffect(()=>{
 <p className='rentss'> <p>IdNo:</p>  <p>{items.idNo}</p></p>
 <p className='rentss'> <p>Fisrt Water Read:</p> <p>{items.currentRead}</p> </p> 
 <p className='rentss'> <p>Last Water Read:</p> <p>{items.lastRead}</p> </p> 
+<p className='rentss'> <p>Water bill:</p> <p>{items.waterFee}</p> </p> 
+
 <p className='rentss'> <p>Method of payment:</p> <p>{items.payment}</p> </p> 
 <p className='rentss'> <p>Date of Payment:</p> <p>{items.datePaid}</p> </p> 
 <p className='rentss'> <p>Type of the rental:</p> <p>{items.aptType}</p> </p> 
+<p className='rentss'> <p>Wifi Fee:</p> <p>{items.wifi}</p> </p> 
+<p className='rentss'> <p>Arrears:</p> <p>{items.arrears}</p> </p> 
+<p className='rentss'> <p>Phone Number:</p> <p>{items.phone}</p> </p> 
+<p className='rentss'> <p>Penalties:</p> <p>{items.penalties}</p> </p> 
+<p className='rentss'> <p>Total Balances:</p> <p>{items.balance
+}</p> </p> 
 <p className='rentss'> <p>Payment Screenshot:</p> <img className='img' src={items.imageFile} alt="" /> </p> 
-
-
-Balance:
-<p>{items.aptType==='1bedroom' ? items.plotA-items.amount: null}</p>
-<p>{items.aptType==='2bedroom' ? items.plotA-items.amount: null}</p>
-
-
-             <div className="buttons">
-             <button className="btn"onClick={() => handleDelete(items._id)}
+<div className="buttons">
+{items.balance==='' ? <><button className="color1">No Balance</button></>
+:<><button className="color2">Balance</button></>}
+</div>
+<div className="buttons">
+<button className="btn "onClick={() => handleDelete(items._id)}
 >
           delete
             </button>

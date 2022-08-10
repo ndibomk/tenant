@@ -22,9 +22,29 @@ useEffect(()=>{
     fetchData()
       },[])
 
+
+      const handleSearch= async (event)=>{
+        event.preventDefault()
+        let key =event.target.value
+        if(key){
+         let result= await fetch(`http://localhost:5000/project/search${key}`)
+      result=await result.json()
+      if(result){
+        setTours(result)
+        
+      } console.log(` `,result);
+        }else{
+          setTours()
+        }
+      
+      
+      }
+
   return (
     <div>
       <h4>Complains</h4>
+      <input type="text" placeholder='Search by house Number' onChange={handleSearch} />
+
          {tours && tours?.map((item)=>{
           return(
             <div className='datas'>

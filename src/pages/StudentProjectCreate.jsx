@@ -106,7 +106,7 @@ return (
     <input className='form-input' type='text' placeholder='one or two bedroom eg 1bedroom' onChange={(e)=> setUser({...users ,aptType:e.target.value})}/>
     <input className='form-input' type='number' placeholder='Last water read' onChange={(e)=> setUser({...users ,lastRead:e.target.value})}/>
     <input className='form-input' type='number' placeholder='water Bill' onChange={(e)=> setUser({...users ,waterFee:e.target.value})}/>
-    <input className='form-input' type='text' placeholder='balance' onChange={(e)=> setUser({...users ,balance:e.target.value})} required/>
+    <input className='form-input' type='text' placeholder='balance' onChange={(e)=> setUser({...users ,balance:e.target.value})} />
 
      mpesa screenshot
               <FileBase

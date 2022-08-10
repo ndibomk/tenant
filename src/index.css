@@ -145,6 +145,12 @@ h4:after {
   width:  1px;
   color: #000;
 }
+.color1{
+  background-color: green !important;
+}
+.color2{
+  background-color: red !important;
+}
 .datas{
   display: flex;
   flex-direction: column;
