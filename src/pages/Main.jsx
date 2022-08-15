@@ -67,7 +67,7 @@ if(user?.result?.isAdmin){
     return(
         <div style={{marginTop:'10rem'}}>
             <StyledDashboard>
-      <SideNav>
+      <SideNav className="sidenav">
         <Link to='/'>
           <h3 style={{color:'whitesmoke'}}>Quick Links</h3>
         </Link>

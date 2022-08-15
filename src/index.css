@@ -62,7 +62,7 @@ margin-top: 4rem;
 
 .tag-card {
   margin: 10px 0 0 20px;
-  color: #806a78;
+  color: #806f6a;
   
 }
 
@@ -528,11 +528,12 @@ gap: 3rem;
   align-items: center;
   justify-content: center;
   gap :2rem;
- background-color: #dba4c6;
- padding: 1rem;
+ background-color: #93370a;
+ padding: 1.6rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.3rem;
+  border: 1.2px rgb(69, 164, 34) solid;
 }
 .rent-split-start{
   display: flex;
@@ -746,3 +747,10 @@ margin-left: 1px;
 .search:hover{
   background-color: rgb(69, 35, 8);
 }
+.sidenav{
+  background-color: rgb(80, 41, 77) !important;
+  border: rgb(144, 192, 15) 1px solid !important;
+  width: 13% !important;
+  border-left: none !important;
+}
+
