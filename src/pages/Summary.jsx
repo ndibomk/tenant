@@ -41,12 +41,13 @@ useEffect(()=>{
       }
 
   return (
-    <div>
+    <div className='admincomplain'>
       <h4>Complains</h4>
-      <input type="text" placeholder='Search by house Number' onChange={handleSearch} />
+      <input type="text" className='search' placeholder='Search by house Number' onChange={handleSearch} />
 
          {tours && tours?.map((item)=>{
           return(
+            <div className='dataform'>
             <div className='datas'>
               <p>Name: {item.name}</p>
              <p> Aparment: {item.apartment}</p> 
@@ -58,6 +59,7 @@ useEffect(()=>{
               <button className="btn">view</button>
 
              </div>
+            </div>
             </div>
           )
          })}
